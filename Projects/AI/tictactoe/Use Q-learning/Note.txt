@@ -1,0 +1,58 @@
+Kiến thức & Notes:
+
+1/ VS hay CodeBlock nó auto compile all cpp files trong một project và tự link chúng lại nên không cần phải "include "func.cpp"" như trong "I_made_3x3_Caro.cpp" hay "play.cpp" khi dùng trên VS Code. 2 files đó cần include vì file "func.cpp" chưa được compile & link lại khi compile 2 file đó :) (nó ko tự automatically compile & link all files như VS đâu).
+Cũng có thể tạo file json rồi tự cài setting, hoặc dùng gitbash để mimic VS, Codeblock cho thằng VSCode.
+
+2/ update_q_value dòng 42 43 với 47 khá thông minh (đoạn tự chơi). vd như ở trạng thái state đánh win rồi thì reward nó 1 và vì nó ở state win nên không có future state nên không bị ảnh 
+hưởng bởi future state :), và vì ở state thằng A đánh ntn là win nên phạt cái nước đi cuối cùng của thằng B mà để A win :) và lúc này future state cũng không có nên Q value nó = -1 luôn ko
+bị ảnh hưởng). Còn đoạn mà đánh xong chưa end, cập nhật Q value với tiềm năng trong tương lai khá thông minh: ở trạng thái state thằng A đánh --> trạng thái future mới là tới được B, do đó khi update Q value là update cái nước đi cuối cùng của thằng B vì tưởng tượng đi: B đánh xong thắc mắc nước đi đó được reward ntn từ nước đi tương lai? thì B đánh xong, rồi A chọn nước tối ưu nhất, rồi bh lúc update là xét xem maxQ value trong trạng thái tiếp theo là của thằng B. Kiểu như là state này A đánh ntn, trước đó B đánh như thế đó mà ko ai win nên value = 0 nhưng ta cần xét tiếp tương lai có giá trị ntn để update lại nước cũ của B. do đó old_Q = oldQ + alpha * [max(new_Q) - oldQ] thì new_Q đó là của thằng đánh cái old_Q luôn (nch tưởng tượng đi). Nếu biết B đánh ntn ko ai win nma giá trị của nước đi đó trong tương lai là ntn? Kiểu vậy, và ta biết thằng A nó chọn nước đi tối ưu nhất nên ta xét được cái max_Q_future ảnh hưởng ntn đến old_Q
+
+3/ trick cho loadBot: không nên dùng while(!inFile.eof()) vì sao thì mình ko biết nma nó dễ gây ra tình trạng lặp vô tận. bởi vậy nên đổi sang check khi nào nhập vào lỗi thì break:
+while (true) {
+        state s;
+        double val;
+        s.board.resize(3, vector<int>(3));
+
+        for (auto &row: s.board){
+            for (int &x: row){
+                if (!(inFile >> x)){
+                    inFile.close();
+                    return;
+                }
+            }
+        }
+        if (!(inFile >> s.action.first >> s.action.second)) {
+            inFile.close();
+            return;
+        }
+        if (!(inFile >> val)) {
+            inFile.close();
+            return;
+        }
+        Q[s] = val;
+    }
+
+Also lúc saveBot cũng phải để ý kĩ càng từng dấu xuống dòng, dấu cách để khi loadBot biết mà lấy dữ liệu.
+
+4/ tại sao include "header.h" không sao? ừ thì đơn giản chỉ là lúc mình include "header.h", cứ tưởng tượng như là chèn thêm nguyên cái đống trong file header đó lên trên cái file mình đang code. Do đó mình khai báo gì trong header thì lúc include nó cũng giống như mình khai báo trong file đó
+
+5/ Tại sao ban đàu code sai logic hết?
++ Vì map ban dầu nếu truy cập vào một thằng key (cái thằng đầu (int) trong map <int, string> đó) chưa được khởi tạo thì value của nó = 0 --> cái này ảnh hưởng đến giá trị Q-value nên mình cần phải .find() != .end() trước khi truy cập vào giá trị của nó.
++ Vì ban đầu không hiểu sự thông minh ở chỗ update_q_value cho thằng đối thủ (vì nước đi hiện tại là của thằng này trạng thái state đánh action, mà nó đi tối ưu nên qua trạng thái của thằng đối thủ, đổi thủ xem thử cái nước đi trước đó của nó dẫn đến trạng thái state (và sau đó thằng hiện tại đánh tối ưu là action nên kiểu gì cũng dẫn tới new_state), và đối thủ xem thử cái new_state đó có lợi ntn để cập nhật cho old_state (là state & action mà đối thủ đánh cái rồi qua trạng thái state của thằng hiện tại)
+
+6/ map <int, struct nào đó> m thì cái key đầu nó là int nó biết cách sắp xếp rồi. Nhưng nếu là map <struct, int> m thì map đó chưa biết cách sort ntn nên mình phải tự define.
+
+7/ Hiện tại thì mình đang thêm file audio bằng cách tải file mp3 xong nén qua .wav (vì thư viện windows.h chỉ dùng .wav, còn ko thì tải cái external thư viện về r dùng mp3)
+
+8/ Và cả GUI (nhma có lẽ mình sẽ ko làm vì nó cần dùng thư viện windows.h khá nhiều, nếu có thời gian mình sẽ nghiên cứu sau) (và nó bắt tải gì về nữa đó lol)
+
+9/ Github Copilot quá mạnh
+
+10/ ngay cả bảng 8x8 cũng chỉ cần có 1000~2000 training game. Tại sao tictactoe 3x3 của mình lại chạy tới 5e5? còn tệ hơn cả brute-force nữa!!?
+--> Câu trả lời maybe là vì khi mình chơi "play.cpp" ấy, để con bot luôn đi nước đi tối ưu chứ đừng epsilon-greedy :)
+--> Also quên clear thằng last :c (nó khá là ảnh hưởng đấy vì nó làm con bot đánh giá nước đi sai)
+
+
+11/ Câu trả lời (maybe) cho việc tại mình thực sự chỉ cần train vài chục ngàn lần thôi?
+- Thứ nhất: train mấy trăm ngàn lần để làm gì? số trạng thái của tictactoe ~ 9! ~ 360k --> train nhiều khác gì vét :)?
+- làm sao để train ít nma bot nó vẫn thông minh:? Điều đầu tiên là khi thi đấu với người, tictactoe đòi hỏi độ chính xác tuyệt đối nên buộc bot phải chọn nước đi có lợi nhất chứ ko random. Thứ hai, lúc train, cần để tỉ lệ random cực cao để bot nó khám phá ra hết các chiến thuật của người chơi :)

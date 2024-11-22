@@ -1,0 +1,9 @@
+Notes:
+1/ Chôm các data và xác định who is the winner of each game và backpropagate lại để update NN hoặc Q - learning?
+
+
+
+
+
+NOTE CỦA QUÁ TRÌNH HỌC, TÌM HIỂU TRONG 6 TIẾNG LIÊN TỤC (guarantee no social medias include discord, messenger, zalo, facebook) - guarantee deep dive into exploring:
+
