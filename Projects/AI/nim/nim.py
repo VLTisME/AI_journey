@@ -2,6 +2,16 @@ import math
 import random
 import time
 
+# Okay so nếu như ta dùng @classmethod thì ta có thể gọi hàm đó mà không cần tạo instance của class (vd như là Nim.available_actions(piles)) còn nếu
+# không dùng thì ta cần phải tạo instance của class trước rồi mới gọi hàm (vd như là nim = Nim() sau đó nim.available_actions(piles))
+# Nó sẽ hữu dụng khi ta muốn tạo một hàm mà không cần phải tạo instance của class đó trước ví dụ như là một hàm dùng chung cho nhiều class
+# ví dụ bên dưới thì class Nim() ta đang kiểm soát cả một trò chơi lớn nên chỉ cần gọi available_actions(piles) là trả về all actions rồi
+# nch là thêm classmethod cho đỡ tốn công tạo instance của class đó mới gọi được.
+# tóm tắt lại khi nào cần dùng @classmethod:
+# - Khi muốn tạo một hàm dùng chung cho nhiều instance của class
+# - Khi muốn tạo một hàm mà không cần phải tạo instance của class đó 
+# Lưu ý là nếu có @classmethod thì phải dùng cls chứ không dùng self
+
 
 class Nim():
 
@@ -19,7 +29,7 @@ class Nim():
         return actions
 
     @classmethod
-    def other_player(cls, player):
+    def other_player(cls, player): # phải là cls vì nó không cần instance của class đó để chạy được còn nếu 
         return 0 if player == 1 else 1
 
     def switch_player(self):

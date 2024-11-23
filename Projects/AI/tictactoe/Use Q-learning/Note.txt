@@ -56,3 +56,5 @@ Also lúc saveBot cũng phải để ý kĩ càng từng dấu xuống dòng, d�
 11/ Câu trả lời (maybe) cho việc tại mình thực sự chỉ cần train vài chục ngàn lần thôi?
 - Thứ nhất: train mấy trăm ngàn lần để làm gì? số trạng thái của tictactoe ~ 9! ~ 360k --> train nhiều khác gì vét :)?
 - làm sao để train ít nma bot nó vẫn thông minh:? Điều đầu tiên là khi thi đấu với người, tictactoe đòi hỏi độ chính xác tuyệt đối nên buộc bot phải chọn nước đi có lợi nhất chứ ko random. Thứ hai, lúc train, cần để tỉ lệ random cực cao để bot nó khám phá ra hết các chiến thuật của người chơi :)
+
+12/ Vì là Q-learning nên nó không học được các chiến thuật nên là các nước đi của nó chỉ đảm bảo sự an toàn thôi. Để nó khôn thì phải minimax hoặc train using NN
