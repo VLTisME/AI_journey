@@ -16,26 +16,25 @@ Hardcoding 1 would only reshape and use a single image, which is incorrect for t
 
 -> this raises a question: what is indeed a numpy array? lets google it
 What is x_train?
-- x_train is a collection of images, typically in a numerical array format, where each image is represented by a grid of pixel values. Depending on how the dataset was loaded, x_train could have various shapes.
-- For example:
+- x_train is a collection of images, typically in a numerical array format, where each image is represented by a grid of pixel values. Depending on how the dataset was loaded, x_train could have various shapes. For example:
 
-For a grayscale dataset (e.g., MNIST):
+- For a grayscale dataset (e.g., MNIST):
 x_train.shape  # Could be (60000, 28, 28)
 60,000 images.
 Each image is 28x28 pixels.
 No explicit "channel" dimension because grayscale images have only one channel, often left implicit.
 
 
-For an RGB dataset (e.g., CIFAR-10 or GTSRB):
+- For an RGB dataset (e.g., CIFAR-10 or GTSRB):
 x_train.shape  # Could be (50000, 32, 32, 3)
 50,000 images.
 Each image is 32x32 pixels.
 The 3 represents the three color channels (Red, Green, Blue).
 
 
-x_train.shape[0] like above, is the number of images
-x_train.shape[1], [2] are width and height
-[3] (if exists) is the number of channels
+- x_train.shape[0] like above, is the number of images
+- x_train.shape[1], [2] are width and height
+- [3] (if exists) is the number of channels
 
 
 
@@ -113,7 +112,7 @@ Thus, while both convolution and pooling are common operations in CNNs, only con
 
 
 
-# 1 regarding activation function
+### 1 regarding activation function
 ReLU (Rectified Linear Unit):
 Default for hidden layers. Works well in most cases due to its simplicity and computational efficiency.
 Helps with vanishing gradient issues in deep networks.
@@ -125,15 +124,15 @@ Use for the output layer in multi-class classification.
 Leaky ReLU or ELU:
 Variants of ReLU to mitigate "dying ReLU" problems.
 
-# 2 regarding neurons
+### 2 regarding neurons
 u could try the later layer, the more neurons: 32 - 64 - 128...
 
 
-# 3 regarding how many layers
+### 3 regarding how many layers
 the simpler the task/ dataset -> the less layer and vice versal
 
 
-# 4 regarding how to recognize that is is underfitting or overfitting
+### 4 regarding how to recognize that is is underfitting or overfitting
 Underfit:
 the model is too simple with too complex data/ problem and vice versal
 Overfit:
