@@ -1,7 +1,7 @@
-from tensorflow.keras.models import load_model
-import cv2
+from tensorflow.keras.models import load_model # type: ignore
+import cv2 # type: ignore
 import os
-import tensorflow as tf
+import tensorflow as tf # type: ignore
 import numpy as np
 
 IMG_WIDTH = 30

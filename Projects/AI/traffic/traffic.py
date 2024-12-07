@@ -1,8 +1,8 @@
-import cv2
+import cv2 # type: ignore
 import numpy as np
 import os
 import sys
-import tensorflow as tf
+import tensorflow as tf # type: ignore
 
 from sklearn.model_selection import train_test_split
 
@@ -21,6 +21,7 @@ def main():
 
     # Get image arrays and labels for all image files
     images, labels = load_data(sys.argv[1])
+    # Hinh nhu khong can / 255 vi de luon [0, 255] choi luon :)
 
     # Split data into training and testing sets
     # Hmm, in this code, the author doesn't use batches (segmenting the data into small parts and train them one by one)
