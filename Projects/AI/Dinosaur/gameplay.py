@@ -2,11 +2,23 @@
 
 import pygame  # type: ignore  
 import os  
+import sys
 import random  
 
 pygame.init()  
 
 # GLOBAL VARIABLES  
+
+# GLOBAL VARIABLES  
+def resource_path(relative_path):  
+    """ Get absolute path to resource, works for dev and when packaged with PyInstaller """  
+    try:  
+        # PyInstaller creates a temp folder and stores path in _MEIPASS  
+        base_path = sys._MEIPASS  
+    except AttributeError:  
+        base_path = os.path.abspath(".")  
+
+    return os.path.join(base_path, relative_path)
 
 SCREEN_HEIGHT = 600  
 SCREEN_WIDTH = 1100  
@@ -16,31 +28,31 @@ FPS = 120  # Set the frame rate to 120 FPS
 FPS_BASELINE = 30  # Original FPS to maintain game speed  
 
 RUNNING = [  
-    pygame.image.load(os.path.join("assets/Dino", "DinoRun1.png")),  
-    pygame.image.load(os.path.join("assets/Dino", "DinoRun2.png")),  
+    pygame.image.load(resource_path("assets/Dino/DinoRun1.png")),  
+    pygame.image.load(resource_path("assets/Dino/DinoRun2.png")),  
 ]  
-JUMPING = pygame.image.load(os.path.join("assets/Dino", "DinoJump.png"))  
+JUMPING = pygame.image.load(resource_path("assets/Dino/DinoJump.png"))  
 DUCKING = [  
-    pygame.image.load(os.path.join("assets/Dino", "DinoDuck1.png")),  
-    pygame.image.load(os.path.join("assets/Dino", "DinoDuck2.png")),  
+    pygame.image.load(resource_path("assets/Dino/DinoDuck1.png")),  
+    pygame.image.load(resource_path("assets/Dino/DinoDuck2.png")),  
 ]  
 
 BIRD = [  
-    pygame.image.load(os.path.join("assets/Bird", "Bird1.png")),  
-    pygame.image.load(os.path.join("assets/Bird", "Bird2.png")),  
+    pygame.image.load(resource_path("assets/Bird/Bird1.png")),  
+    pygame.image.load(resource_path("assets/Bird/Bird2.png")),  
 ]  
-CLOUD = pygame.image.load(os.path.join("assets/Other", "Cloud.png"))  
-BG = pygame.image.load(os.path.join("assets/Other", "Track.png"))  
+CLOUD = pygame.image.load(resource_path("assets/Other/Cloud.png"))  
+BG = pygame.image.load(resource_path("assets/Other/Track.png"))  
 SMALL_CACTUS = [  
-    pygame.image.load(os.path.join("assets/Cactus", "SmallCactus1.png")),  
-    pygame.image.load(os.path.join("assets/Cactus", "SmallCactus2.png")),  
-    pygame.image.load(os.path.join("assets/Cactus", "SmallCactus3.png")),  
+    pygame.image.load(resource_path("assets/Cactus/SmallCactus1.png")),  
+    pygame.image.load(resource_path("assets/Cactus/SmallCactus2.png")),  
+    pygame.image.load(resource_path("assets/Cactus/SmallCactus3.png")),  
 ]  
 LARGE_CACTUS = [  
-    pygame.image.load(os.path.join("assets/Cactus", "LargeCactus1.png")),  
-    pygame.image.load(os.path.join("assets/Cactus", "LargeCactus2.png")),  
-    pygame.image.load(os.path.join("assets/Cactus", "LargeCactus3.png")),  
-]  
+    pygame.image.load(resource_path("assets/Cactus/LargeCactus1.png")),  
+    pygame.image.load(resource_path("assets/Cactus/LargeCactus2.png")),  
+    pygame.image.load(resource_path("assets/Cactus/LargeCactus3.png")),  
+]
 
 
 class Dinosaur:  
