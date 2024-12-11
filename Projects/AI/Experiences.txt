@@ -1,1 +1,2 @@
-1/ Phần xử lý file cũng cực kỳ quan trọng. Ví dụ như xử lí một bộ file lớn định dạng xml mà không xử lí cẩn thận là lên Kaggle nó train ngốn hết CPU và chả chạy được :)
+1/ Phần xử lý data cũng cực kỳ quan trọng. Ví dụ như xử lí một bộ file lớn định dạng xml mà không xử lí cẩn thận là lên Kaggle nó train ngốn hết CPU và chả chạy được :)
+-> hoc khoa Data Science
