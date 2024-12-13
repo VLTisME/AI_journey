@@ -28,7 +28,7 @@ def main():
 
     # Use model to process input
     model = TFBertForMaskedLM.from_pretrained(MODEL)
-    result = model(**inputs, output_attentions=True)
+    result = model(**inputs, output_attentions=True) # Convert Python's dict into inputs of the model
 
     # Generate predictions
     mask_token_logits = result.logits[0, mask_token_index]
