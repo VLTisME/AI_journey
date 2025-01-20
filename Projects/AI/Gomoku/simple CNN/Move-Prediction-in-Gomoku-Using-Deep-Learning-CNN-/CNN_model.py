@@ -101,8 +101,6 @@ def load_data():
                       continue
                    row = to_num(move[0])
                    col = int(move[1:]) - 1
-                   # Don't even know why can't I use: col = int(move[1:]) - 1
-                   # Oh yeah I figured it out. There is a fucking weird move that is a long string like h2$%1013123..1... in the <move> tag lmao
                    player = 2 if turn == 1 else 1 # 2 is X, 1 is O and 0 is an empty cell
                    flat_board[BOARD_SIZE * BOARD_SIZE] = row
                    flat_board[BOARD_SIZE * BOARD_SIZE + 1] = col

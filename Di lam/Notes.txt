@@ -1,0 +1,77 @@
+1/ what is SQL and API
+- SQL is used to directly interact with the database:
+Yes, SQL (Structured Query Language) is the primary language used to manage and interact with relational databases like MySQL, PostgreSQL, or SQLite. When you connect to a database, you can use SQL to create (INSERT), read (SELECT), update (UPDATE), or delete (DELETE) information.
+- Direct access to a database can be risky:
+Exactly! Some databases (especially those serving large-scale online systems) don’t want users to interact with them directly because:
+They may damage or corrupt data by running invalid or harmful queries.
+They expose sensitive data if access is not properly controlled.
+Direct access is less scalable and doesn’t allow tailored control over what users can and can’t do.
+
+- APIs act as a protective middleman:
+Correct again! APIs are used as a secure "layer" between users and the database. Instead of directly interacting with the database using SQL, users talk to the API, which performs the necessary SQL operations behind the scenes.
+APIs give database owners more control over what data gets accessed and how it’s accessed.
+i guess api will consider if the request is ok or not to perform that request?
+- An API key is like an access pass:
+Yes! An API key is often required to access APIs. It’s like a unique credential or "password" given to users to make controlled requests to the API (and indirectly to the database). The API itself enforces restrictions based on the key—for example:
+Limit what data you can access.
+Control how many requests you can make (rate limiting).
+Authenticate and track who is accessing the API.
+
+i. You send a request to the API (using HTTP methods like GET, POST, etc.).
+ii. The API does the work behind the scenes, often running the appropriate SQL commands on the database (but YOU don’t run the SQL directly).
+iii. The API gives you back the result in a user-friendly format (e.g., JSON data).
+
+Let’s Compare                     Direct SQL              vs.                   API Access:
+Feature	Direct                    SQL Access	                                API Access
+Control	                Full access (can do almost anything).	        Limited access (restricted by the API).
+Ease of Use	        Requires SQL knowledge (manual queries).	Simpler (just make requests to the API).
+Security	        Higher risk of damaging data.	                Safer, controlled by the API limits.
+Scalability	        Harder to handle multiple users.	        Optimized for many simultaneous users.
+Use Case Example	Used internally by developers/admins.	        Used in apps/websites for end users.
+
+
+2/ MLOps
+MLOps is essentially about automating and streamlining the machine learning lifecycle, which includes things like:
+
+Training models, Deploying them to production, Monitoring their performance, and retraining/updating models when needed, all while ensuring efficiency, scalability, and reproducibility. It's like DevOps, but specifically designed for handling ML models and their data.
+
+In short, yes—it's about automating ML models and making their lifecycle smooth and reliable! 🚀
+
+3/ SDK
+An SDK (Software Development Kit) is a collection of tools, libraries, documentation, and examples that helps developers build applications for specific platforms, frameworks, or programming environments. It's essentially a toolbox that makes it easier to create software by providing prebuilt components and step-by-step guidance for utilizing a particular system or service.
+A typical SDK includes:
+
+Libraries/APIs: Predefined functions and classes required to interact with or extend a platform.
+Tools: Debuggers, emulators, and testing tools for building and verifying applications.
+Documentation/Guides: Step-by-step instructions and tutorials for using the SDK effectively.
+Sample Code/Examples: Prewritten snippets or projects to help developers understand common use cases.
+Compilers or IDE Extensions: Tools that simplify building and running the code.
+Authentication Mechanisms: Tools to securely authenticate and interact with protected resources or services (e.g., API keys, OAuth).
+
+
+To use Google Generative AI, the workflow is:
+Install the SDK (pip install google-generative-ai). (meaning the SDK provides u IDE (which has libraries, environments), bla bla,.... all in one... to do a specific work)
+Enable the Generative AI API in Google Cloud Console.
+Generate an API key that authenticates your requests to the API.
+Configure the SDK in your code with the API key.
+Use the SDK methods (like genai.chat()) to interact with Google's AI services. (like sending the request to the API key)
+This process ensures that you're set up to use the Generative AI features effectively and securely.
+
+
+
+Imagine you’re developing a mobile photo-editing app:
+
+You could use the iOS SDK or Android SDK to create the app for different operating systems.
+You can integrate the Facebook SDK to allow users to share edited photos directly on Facebook.
+To add filters and effects, you might use a third-party graphics library SDK (such as OpenCV SDK).
+To track user analytics, integrate the Firebase SDK.
+SDKs combine tools, libraries, and APIs to help developers quickly and efficiently build their products.
+
+-> SDK > IDE (SDK contains IDE, API, documentations, libraries, frameworks (tensorflow), code samples and templates, compilers, build tools, debugging & testing tools, CLI, UI/ UX,... everything! For example: Android SDK - a developer’s toolkit for a specific platform or system.
+
+
+4/ IDE (like Pycharm)
+An IDE (Integrated Development Environment) is a software application that provides a comprehensive set of tools to help developers write, edit, debug, test, and manage their code efficiently. Essentially, it brings all the tools you need for software development into one interface, making programming more convenient and productive.
+
+
+5/ Framework (Tensorflow, Pytorch,...)

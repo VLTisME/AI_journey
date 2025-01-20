@@ -21,7 +21,7 @@ def main():
 
     # Tokenize input
     tokenizer = AutoTokenizer.from_pretrained(MODEL)
-    inputs = tokenizer(text, return_tersors = "tf")
+    inputs = tokenizer(text, return_tensors = "tf") # Its shape is transformers.BatchEncoding ~~ dictionary
     mask_token_index = get_mask_token_index(tokenizer.mask_token_id, inputs)
     if mask_token_index is None:
         sys.exit(f"Input must include mask token {tokenizer.mask_token}. ")
@@ -41,42 +41,30 @@ def main():
 
 
 def get_mask_token_index(mask_token_id, inputs):
-    """
-    Return the index of the token with the specified `mask_token_id`, or
-    `None` if not present in the `inputs`.
-    """
-    # TODO: Implement this function
-    raise NotImplementedError
+    idx = 0
+    for input in inputs.input_ids[0]:
+        if input == mask_token_id:
+            return idx
+        idx += 1
+    return None 
 
 
 
 def get_color_for_attention_score(attention_score):
-    """
-    Return a tuple of three integers representing a shade of gray for the
-    given `attention_score`. Each value should be in the range [0, 255].
-    """
-    # TODO: Implement this function
-    raise NotImplementedError
+    x = int(attention_score * 255)
+    return (x, x, x)
 
 
 
-def visualize_attentions(tokens, attentions):
-    """
-    Produce a graphical representation of self-attention scores.
-
-    For each attention layer, one diagram should be generated for each
-    attention head in the layer. Each diagram should include the list of
-    `tokens` in the sentence. The filename for each diagram should
-    include both the layer number (starting count from 1) and head number
-    (starting count from 1).
-    """
-    # TODO: Update this function to produce diagrams for all layers and heads.
-    generate_diagram(
-        1,
-        1,
-        tokens,
-        attentions[0][0][0]
-    )
+def visualize_attentions(tokens, attentions): # attentions is a tuple of tensors. tensor is a multi-dimensonal arrays
+    for layer_number in range(1, 13):
+        for head_number in range(1, 13):
+            generate_diagram(
+                layer_number,
+                head_number,
+                tokens,
+                attentions[layer_number - 1][0][head_number - 1]
+            )
 
 
 def generate_diagram(layer_number, head_number, tokens, attention_weights):

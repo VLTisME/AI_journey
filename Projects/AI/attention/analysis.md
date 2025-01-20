@@ -5,7 +5,9 @@
 TODO
 
 Example Sentences:
-- TODO
+- TODO: I'm describing an animal called [MASK]. It is tall but slow, very heavy, lives in Africa.
+-> outputs are: it, lion, zulu
+-> bert-uncase is sus
 - TODO
 
 ## Layer TODO, Head TODO
@@ -109,3 +111,9 @@ Plus: GPT-2 is used to predict the next word so it has self-attention head but w
 
 [regarding embedding vectors]: Yes you can train the model to have the embedding matrix BUT you can also pretrain the embedding matrix using Word2vec or FastText :)
 
+
+
+
+## Plus
+- May con genai ma ko ghi gi hoac ghi -base- nhu con bert vua roi la moi pre-trained thoi chu chua fine tune cho mot viec cu the.
+- vd nhu llama-2-70b (model llma-2- 70 bill tokens cua fb) -> base, pretrain.  con llama-2-70b-chat la fine tuned de chat roi

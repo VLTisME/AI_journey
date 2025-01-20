@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="84f3f48c-1389-4697-bc9c-e57ddec36505" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Papers/Newwhitepaper_Embeddings &amp; vector stores.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Papers/Newwhitepaper_Embeddings &amp; vector stores.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gomoku/simple CNN/Move-Prediction-in-Gomoku-Using-Deep-Learning-CNN-/CNN_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Gomoku/simple CNN/Move-Prediction-in-Gomoku-Using-Deep-Learning-CNN-/CNN_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis.md" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mask.py" beforeDir="false" afterPath="$PROJECT_DIR$/mask.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Testing site/VLT_test_Python/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Testing site/VLT_test_Python/testing.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2qnkWOTIG0hOD06PqArlH7WSFcE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-PY-243.21565.199" />
+        <option value="bundled-python-sdk-cab1f2013843-4ae2d6a61b08-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.21565.199" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="84f3f48c-1389-4697-bc9c-e57ddec36505" name="Changes" comment="" />
+      <created>1735305763414</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1735305763414</updated>
+      <workItem from="1735305765201" duration="309000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
