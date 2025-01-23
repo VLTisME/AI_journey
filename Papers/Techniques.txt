@@ -1,5 +1,0 @@
-1. Knowledge Distillation:
-Brief: Train the small model with the true label as well as the soft probability of the "teacher" model.
-
-2. ? Forgot the name
-Brief: Uses small model to predict the next word, then use the large model to check the predicted word of the small model. If correct, take that word, if not, use the large model to predict the next word.

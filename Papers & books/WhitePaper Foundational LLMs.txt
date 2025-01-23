@@ -1,0 +1,40 @@
+TEMP:
+- Complete the first 2 days of Kaggle -> TH CLST -> Matlab practice -> Toan roi rac -> Lam bao cao NMCNTT -> giat do
+- https://www.youtube.com/@AndrejKarpathy/videos
+- 
+
+
+History:
+- Before transformers, the model use for modeling sequences is RNNs (recurrent neural networks). In particular, “long short-term memory” (LSTM) and “gated recurrent unit” (GRU) were common architectures. RNNs process input and output sequences sequentially.
+- transformers can handle paralelly yeah so super faster and more powerful than RNNs but limited by the context size (context size ^ 2), but RNN is not limited by that.
+
+
+
+keys:
+1/ In unsupervised pre-training, the target sequence is derived from the input sequence itself. --> input a sequence lets say see what it predicts, then calculate the loss based on the actual sequence it must output. In supervised pre-training, i guess input is a sequence, target is still that sequence but shifted right?
+
+2/ Encoder-decoder models (like the original transformer) are trained on sequence-to-sequence supervised tasks such as translation (input sequence “Le chat est assis surle tapis” and target “The cat sat on the mat”), question-answering (where the input sequence is a question and the target sequence is the corresponding answer), and summarization (where the input sequence is a full article and the target sequence is its corresponding summary). These models could also be trained in an unsupervised way by converting other tasks into sequence-to-sequence format. For example, when training on Wikipedia data, the input sequence might be the first part of an article, and the target sequence comprises the remainder of the article.
+-> meaning we can convert these tasks to Sequence to sequence task, just take the input and presumably the output is the sentence itself, then train until converges. -> unsupervised learning la though noi la ko co label cu the nhung label no la chinh no hoac mot cai gi do minh muon xong tune cac parameters until the gradient converges?
+
+3/ Mien la con nguoi cho mot cai input mot cai label cu the thi no la supervised, con ko thi unsupervised. ngay ca self-supervised cung thuoc unsupervised (tuc la input la 1 cai sequence xong output la cai shifted sequence)
+- LLM pretraining = unsupervised/self-supervised learning.
+- Fine-tuning for tasks = supervised learning.
+
+4/ Semi-supervised learning is used in many areas where labeled data is scarce but a large amount of unlabeled data exists:
+
+
+
+5/ soft prompt tức là lúc train, thay vì prompt mình tự gõ cho con bot thì bh mình cho cái prompt đó thành vector và bỏ vào input embedding của model luôn --> lúc train thì freeze các thông số chính (model parameters) mà chỉ train thằng vector prompt đó sao cho output nó vẫn khớp với mục tiêu của mình (vì một vector ảnh hưởng đến output lớn ntn được mà :)) --> rất tiết kiệm thời gian và chi phí.
+VD như giữa soft prompting và fine tuning:
+Tiêu chí	                                                     Soft Prompting                                           	    Fine-Tuning
+Điều chỉnh tham số	                                   Chỉ cập nhật các vector soft prompt	                              Điều chỉnh toàn bộ mô hình
+Số lượng tham số cập nhật	                   Rất ít (vài nghìn hoặc ít hơn, tiết kiệm tài nguyên)	                   Hàng tỷ tham số (tốn tài nguyên hơn)
+Cần đào tạo riêng cho từng tác vụ?	              Có (nhưng chỉ tạo soft prompt cho mỗi tác vụ)	               Có (phải fine-tune một bản riêng cho mỗi tác vụ)
+Khả năng tái sử dụng mô hình chính	Rất tốt (một mô hình chính có thể dùng cho nhiều task với mỗi task có soft prompt riêng)	Khó hơn vì phải fine-tune lại cho từng task
+Cách implement	                                     Gắn vector learned prompt vào đầu input	                          Huấn luyện trực tiếp toàn bộ model
+
+
+Transformer's step:
+1/ Data preparation:
+The first step is data preparation, which involves a few important steps itself. First, clean the data by applying techniques such as filtering, deduplication, and normalization. The next
+step is tokenization where the dataset is converted into tokens using techniques such as Byte-Pair Encoding8, 9 and Unigram tokenization.
