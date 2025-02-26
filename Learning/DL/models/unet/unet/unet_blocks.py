@@ -3,7 +3,7 @@ import torch.nn as nn #type: ignore
 import torch.nn.functional as F #type: ignore
 
 
-def DoubleConv(nn.Module): #type: ignore
+class DoubleConv(nn.Module): #type: ignore
     "2 * [conv2d -> BN -> Relu]"
     def __init__(self, in_channels, out_channels, mid_channels = None):
         super().__init__
@@ -21,7 +21,7 @@ def DoubleConv(nn.Module): #type: ignore
     def forward(self, x):
         return self.double_conv(x)
     
-def Down(nn.Module): #type: ignore
+class Down(nn.Module): #type: ignore
     "max_pool -> double conv"
     def __init__(self, in_channels, out_channels):
         super().__init__
@@ -33,7 +33,7 @@ def Down(nn.Module): #type: ignore
     def forward(self, x):
         return self.down(x)
     
-def Up(nn.Module): #type: ignore
+class Up(nn.Module): #type: ignore
     "upscale -> double conv"
     "there are two types of upscaling"
     def __init__(self, in_channels, out_channels, bilinear = True):
