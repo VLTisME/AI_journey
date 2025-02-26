@@ -1,8 +1,7 @@
 from .unet_blocks import *
-
 class UNet(nn.Module): # type: ignore
     def __init__(self, n_channels, n_classes, bilinear = False):
-        super().__init__
+        super().__init__()
         self.n_channels = n_channels
         self.n_classes = n_classes
         self.bilinear = bilinear
