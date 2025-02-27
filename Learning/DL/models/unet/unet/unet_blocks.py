@@ -1,7 +1,7 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torchsummary import summary
+import torch # type: ignore
+import torch.nn as nn # type: ignore
+import torch.nn.functional as F # type: ignore
+from torchsummary import summary # type: ignore 
 
 class DoubleConv(nn.Module):
     "2 * [conv2d -> BN -> Relu]"
