@@ -32,7 +32,7 @@ if is_kaggle_env:
     dir_checkpoint = Path('/kaggle/working/checkpoints/')   # Save checkpoints here (writable) 
 else:  
     # For local environment  
-    dataset_path = Path('D:\AI\Learning\DL\models\unet\data')  # <- Point this to your local dataset folder
+    dataset_path = Path(r'D:/AI/Learning/DL/models/unet/data')  # <- Point this to your local dataset folder
     dir_checkpoint = Path('./checkpoints/')  # Save checkpoints locally  
 # The . in the paths ./data/train/ and ./data/train_masks/ refers to the current working directory in your filesystem.
 # ./... → Relative path starting from the current directory.
