@@ -1,16 +1,16 @@
 import argparse
 import logging
 import os
-
+# file predict thi cung y nhu file train thoi, khac co chut :D
 import numpy as np
-import torch
-import torch.nn.functional as F
-from PIL import Image
-from torchvision import transforms
+import torch # type: ignore
+import torch.nn.functional as F # type: ignore
+from PIL import Image # type: ignore
+from torchvision import transforms # type: ignore
 
 from utils.data_loading import BasicDataset
-from unet import UNet
-from utils.utils import plot_img_and_mask
+from unet import UNet # type: ignore
+from utils.utils import plot_img_and_mask # type: ignore
 
 def predict_img(net,
                 full_img,

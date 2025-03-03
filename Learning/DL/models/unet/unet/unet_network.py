@@ -31,6 +31,7 @@ class UNet(nn.Module): # type: ignore
         logits = self.outc(x)
         return logits
     
+    # these checkpoints are used to save memory, but they slow down the training because it discards the gradients after each checkpoint and recomputes them in the backward pass
     def use_checkpointing(self):
         self.inc = torch.utils.checkpoint(self.inc)
         self.down1 = torch.utils.checkpoint(self.down1)

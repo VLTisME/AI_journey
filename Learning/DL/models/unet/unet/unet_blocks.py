@@ -6,7 +6,7 @@ from torchsummary import summary # type: ignore
 class DoubleConv(nn.Module):
     "2 * [conv2d -> BN -> Relu]"
     def __init__(self, in_channels, out_channels, mid_channels = None):
-        super().__init__()
+        super().__init__() # no arguments inside () because __init__ in class Module expects no arguments
         if not mid_channels:
             mid_channels = out_channels
             self.double_conv = nn.Sequential(
