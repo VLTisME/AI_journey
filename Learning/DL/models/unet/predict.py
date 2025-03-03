@@ -9,7 +9,7 @@ from PIL import Image # type: ignore
 from torchvision import transforms # type: ignore
 
 from utils.data_loading import BasicDataset
-from unet import UNet # type: ignore
+from unet.unet_network import UNet # type: ignore
 from utils.utils import plot_img_and_mask # type: ignore
 
 def predict_img(net,

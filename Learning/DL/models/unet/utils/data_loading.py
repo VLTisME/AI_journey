@@ -86,7 +86,7 @@ class BasicDataset(Dataset):
         # if pil_img is a grayscale image, pil_img has size (w, h) and when converting to numpy, it has shape (h, w)
         
         if is_mask:
-            mask = np.zeroes((newH, newW), dtype = np.int64)
+            mask = np.zeros((newH, newW), dtype = np.int64)
             for i, v in enumerate(mask_values):
                 if img.ndim == 2:
                     mask[img == v] = i

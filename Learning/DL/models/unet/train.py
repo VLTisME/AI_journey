@@ -15,16 +15,35 @@ from tqdm import tqdm
 
 import wandb
 from evaluate import evaluate
-from unet import UNet
+from unet.unet_network import UNet
 from utils.data_loading import BasicDataset, CarvanaDataset
 from utils.dice_score import dice_loss
 
+
+
+# Check if we're running in Kaggle  
+is_kaggle_env = 'KAGGLE_KERNEL_RUN_TYPE' in os.environ  
+
+
+# Set dataset path dynamically  
+if is_kaggle_env:  
+    # For Kaggle  
+    dataset_path = Path('/kaggle/input/carvana/data/') 
+    dir_checkpoint = Path('/kaggle/working/checkpoints/')   # Save checkpoints here (writable) 
+else:  
+    # For local environment  
+    dataset_path = Path('D:\AI\Learning\DL\models\unet\data')  # <- Point this to your local dataset folder
+    dir_checkpoint = Path('./checkpoints/')  # Save checkpoints locally  
 # The . in the paths ./data/train/ and ./data/train_masks/ refers to the current working directory in your filesystem.
 # ./... → Relative path starting from the current directory.
 # /... → Absolute path starting from the root of the filesystem.
-dir_img = Path('./data/train/')
-dir_mask = Path('./data/train_masks/')
-dir_checkpoint = Path('./checkpoints/')
+dir_img = dataset_path / 'train/train'
+dir_mask = dataset_path / 'train_masks/train_masks'
+# Ensure checkpoint directory exists on Kaggle
+dir_checkpoint.mkdir(parents = True, exist_ok = True) 
+# ok so if i train locally, dir_checkpoint will be ./checkpoints/ and if i train on kaggle, dir_checkpoint will be /kaggle/working/checkpoints/
+# when pushing to github, i should ignore the checkpoints folder because it's too big, and it's so ok because when training on kaggle, it will create the checkpoints folder automatically
+
 # dir_checkpoint to save the model checkpoints like checkpoint_epoch1.pth, checkpoint_epoch2.pth, or checkpoints in unet_network.py, or info about anything like:
 # torch.save({  
 #     'epoch': epoch,  

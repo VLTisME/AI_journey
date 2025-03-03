@@ -1,2 +1,5 @@
 data/
 checkpoints/
+__pycache__/
+wandb/
+tiny_data/
