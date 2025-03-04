@@ -184,7 +184,7 @@ def train_model(
                 pbar.set_postfix(**{'loss (batch)': loss.item()}) # update the progress bar with additional information about the current loss value of current batch
 
                 # Evaluation round
-                division_step = (n_train // (5 * batch_size)) # meaning do the evaluation every 5 batches
+                division_step = (n_train // (2 * batch_size)) # meaning do the evaluation every 20% of each epoch
                 if division_step > 0:
                     if global_step % division_step == 0:
                         histograms = {}
