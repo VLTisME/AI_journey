@@ -1,0 +1,4 @@
+[BEST FOR LEARNING FOUNDATIONAL STUFF]
++ Recommended by RR:
+- https://en.algorithmica.org/hpc/
+- https://www.youtube.com/results?search_query=cppcon+back+to+basics
