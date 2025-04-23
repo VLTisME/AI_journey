@@ -6,7 +6,7 @@
 
 # Do not ignore the main.py file in the root directory  
 !main.py
-
+!demo.webm
 !Assets/
 
 Assets/*
